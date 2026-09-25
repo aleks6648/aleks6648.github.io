@@ -66,7 +66,7 @@
     font-family: 'Space Grotesk', ui-sans-serif, sans-serif;
   }
   a { color: inherit; }
-  a:focus-visible { outline: none; box-shadow: 0 0 0 3px var(--paper), 0 0 0 6px var(--red); }
+  a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible { outline: none; box-shadow: 0 0 0 3px var(--paper), 0 0 0 6px var(--red); }
   .wrap { max-width: 1240px; margin: 0 auto; padding: 0 28px; }
   .mono { font-family: 'JetBrains Mono', ui-monospace, monospace; }
   ::selection { background: var(--red); color: var(--paper); }
@@ -149,6 +149,19 @@
   .contact-left h2 { font-family: 'Archivo Black'; text-transform: uppercase; font-size: clamp(2rem, 5vw, 3.6rem); margin: 0; line-height: 1; }
   .contact-left h2 .r { color: var(--red); }
   .contact-right { padding: 56px 32px; }
+  .cf-intro { margin: 22px 0 26px; font-size: 15px; line-height: 1.6; max-width: 40ch; }
+  .cf { display: flex; flex-direction: column; gap: 18px; max-width: 460px; }
+  .cf label { display: block; font-family: 'JetBrains Mono', monospace; font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; opacity: .7; margin-bottom: 8px; }
+  .cf input[type="email"], .cf textarea { width: 100%; font-family: 'JetBrains Mono', monospace; font-size: 15px; color: var(--ink); background: var(--paper-2); border: 1px solid var(--line); border-radius: 0; padding: 13px 14px; }
+  .cf textarea { resize: vertical; min-height: 110px; line-height: 1.5; }
+  .cf input::placeholder, .cf textarea::placeholder { color: var(--ink); opacity: .55; }
+  .cf-send { align-self: flex-start; display: inline-flex; align-items: center; gap: 12px; font-family: 'JetBrains Mono', monospace; font-size: 12.5px; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 700; background: var(--ink); color: var(--paper); border: none; border-radius: 0; padding: 16px 24px; cursor: pointer; transition: background .15s; }
+  .cf-send:hover { background: var(--red); }
+  .cf-send:disabled { opacity: .6; cursor: progress; }
+  .cf-status { margin: 0; min-height: 1.5em; font-size: 14px; line-height: 1.5; }
+  .cf-status[data-state="error"] { color: #ff8a80; }
+  .cf-hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+
   .field { border-bottom: 1px solid var(--line-soft); padding: 16px 0; }
   .field .l { font-family: 'JetBrains Mono', monospace; font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; opacity: .6; display: inline-flex; align-items: center; gap: 6px; }
   .field a, .field span { display: block; font-family: 'JetBrains Mono', monospace; font-size: 15px; margin-top: 4px; text-decoration: none; }
@@ -360,6 +373,22 @@
     <div class="contact-wrap" data-reveal>
       <div class="contact-left">
         <h2>GET IN<br><span class="r">TOUCH</span></h2>
+        <p class="cf-intro">Have a project or a question? Leave your email and a short message, and I will reply.</p>
+        <form class="cf" id="contact-form" action="https://formsubmit.co/ajax/meliksetyanaleksandr@gmail.com" method="POST">
+          <div>
+            <label for="cf-email">Your email</label>
+            <input type="email" id="cf-email" name="email" placeholder="you@example.com" autocomplete="email" required>
+          </div>
+          <div>
+            <label for="cf-message">Message</label>
+            <textarea id="cf-message" name="message" rows="4" maxlength="1500" placeholder="What would you like to talk about?" required></textarea>
+          </div>
+          <input type="text" name="_honey" class="cf-hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <input type="hidden" name="_subject" value="New message from your portfolio site">
+          <input type="hidden" name="_captcha" value="false">
+          <button class="cf-send" type="submit"><span>Send message</span><span class="gicon">send</span></button>
+          <p class="cf-status" role="status" aria-live="polite"></p>
+        </form>
       </div>
       <div class="contact-right">
         <div class="field"><span class="l"><span class="gicon">mail</span> Email</span><a href="mailto:meliksetyanaleksandr@gmail.com">meliksetyanaleksandr@gmail.com</a></div>
@@ -382,6 +411,33 @@
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
   }, { threshold: 0.12 });
   document.querySelectorAll('[data-reveal]').forEach(el => io.observe(el));
+
+  const form = document.getElementById('contact-form');
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const status = form.querySelector('.cf-status');
+    const btn = form.querySelector('.cf-send');
+    btn.disabled = true;
+    status.dataset.state = '';
+    status.textContent = 'Sending...';
+    try {
+      const res = await fetch(form.action, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(Object.fromEntries(new FormData(form)))
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok || data.success === 'false' || data.success === false) throw new Error('send failed');
+      form.reset();
+      status.dataset.state = 'ok';
+      status.textContent = 'Thanks, your message was sent. I will reply soon.';
+    } catch (err) {
+      status.dataset.state = 'error';
+      status.textContent = 'Could not send the message. Please email me directly instead.';
+    } finally {
+      btn.disabled = false;
+    }
+  });
 
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   document.querySelectorAll('a[href^="#"]').forEach(link => {
