@@ -103,6 +103,8 @@
   .cta span:first-child { min-width: 0; }
   .cta:first-child { padding-left: max(28px, calc((100vw - 1240px) / 2 + 28px)); }
   .cta:last-child { padding-right: max(28px, calc((100vw - 1240px) / 2 + 28px)); }
+  .cta-cv { background: var(--red); color: var(--paper); font-weight: 700; }
+  .cta-cv:hover { background: var(--ink); color: var(--paper); }
   .cta:last-child { border-right: none; }
   .cta.primary { background: var(--ink); color: var(--paper); }
   .cta:hover { background: var(--red); color: var(--paper); }
@@ -186,7 +188,7 @@
     .skill-list { grid-template-columns: 1fr; }
     .e-main h3 { font-size: 1.25rem; }
     .cta-row { flex-direction: column; }
-    .cta { border-right: none; border-bottom: 1px solid var(--line-soft); padding: 18px 20px; }
+    .cta { border-right: none; border-bottom: 1px solid var(--line-soft); padding: 18px 28px; }
     .cta:last-child { border-bottom: none; }
   }
   @media (prefers-reduced-motion: reduce) {
@@ -228,6 +230,7 @@
   <div class="cta-row">
     <a class="cta primary" href="#work"><span>SEE THE WORK</span><span>03</span></a>
     <a class="cta" href="https://www.behance.net/aleksmel" target="_blank" rel="noopener"><span>FULL BEHANCE PORTFOLIO</span><span class="gicon">arrow_outward</span></a>
+    <a class="cta cta-cv" href="Aleksandr_Meliksetyan_CV.pdf" download aria-label="Download CV (PDF)"><span>DOWNLOAD CV</span><span class="gicon" aria-hidden="true">download</span></a>
   </div>
 </header>
 
