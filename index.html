@@ -71,6 +71,7 @@
   .wrap { max-width: 1240px; margin: 0 auto; padding: 0 28px; }
   .mono { font-family: 'JetBrains Mono', ui-monospace, monospace; }
   ::selection { background: var(--red); color: var(--paper); }
+  @supports (font: -apple-system-body) { ::selection { background: #d3bfff; color: #121212; } }
   .gicon { font-family: 'Material Symbols Outlined'; font-weight: normal; font-style: normal; font-size: 1.1em; line-height: 1; letter-spacing: normal; text-transform: none; display: inline-block; white-space: nowrap; vertical-align: -3px; font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
 
   nav { position: sticky; top: 0; z-index: 50; background: var(--paper); border-bottom: 2px solid var(--ink); }
