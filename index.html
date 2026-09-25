@@ -75,9 +75,12 @@
   nav { position: sticky; top: 0; z-index: 50; background: var(--paper); border-bottom: 2px solid var(--ink); }
   nav .wrap { display: flex; justify-content: space-between; align-items: center; height: 62px; }
   .brand { font-family: 'Archivo Black'; font-size: 16px; text-transform: uppercase; letter-spacing: -0.01em; }
-  .navlinks { display: flex; gap: 0; font-family: 'JetBrains Mono', monospace; font-size: 12.5px; text-transform: uppercase; letter-spacing: 0.06em; }
+  .navlinks { display: flex; align-items: center; gap: 0; font-family: 'JetBrains Mono', monospace; font-size: 12.5px; text-transform: uppercase; letter-spacing: 0.06em; }
   .navlinks a { text-decoration: none; padding: 0 16px; border-left: 1px solid var(--line-soft); }
   .navlinks a:hover { color: var(--red); }
+  .navlinks a.nav-cv { display: inline-flex; align-items: center; gap: 6px; margin-left: 12px; padding: 7px 12px; border-left: none; background: var(--red); color: var(--paper); font-weight: 700; }
+  .navlinks a.nav-cv:hover { background: var(--ink); color: var(--paper); }
+  .navlinks a.nav-cv .gicon { font-size: 15px; vertical-align: baseline; }
 
   /* hero: swiss print */
   .hero { border-bottom: 2px solid var(--ink); padding: 56px 0 0; }
@@ -103,8 +106,6 @@
   .cta span:first-child { min-width: 0; }
   .cta:first-child { padding-left: max(28px, calc((100vw - 1240px) / 2 + 28px)); }
   .cta:last-child { padding-right: max(28px, calc((100vw - 1240px) / 2 + 28px)); }
-  .cta-cv { background: var(--red); color: var(--paper); font-weight: 700; }
-  .cta-cv:hover { background: var(--ink); color: var(--paper); }
   .cta:last-child { border-right: none; }
   .cta.primary { background: var(--ink); color: var(--paper); }
   .cta:hover { background: var(--red); color: var(--paper); }
@@ -168,6 +169,8 @@
   .field .l { font-family: 'JetBrains Mono', monospace; font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; opacity: .6; display: inline-flex; align-items: center; gap: 6px; }
   .field a, .field span { display: block; font-family: 'JetBrains Mono', monospace; font-size: 15px; margin-top: 4px; text-decoration: none; }
   .field a:hover { color: var(--red); }
+  .field a.cv-link { color: var(--red); font-weight: 700; text-decoration: underline; text-underline-offset: 4px; text-decoration-thickness: 2px; }
+  .field a.cv-link:hover { color: var(--ink); }
   .field .l .gicon { font-family: 'Material Symbols Outlined'; display: inline-block; margin-top: 0; font-size: 14px; vertical-align: -2px; font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 20; }
 
   footer { padding: 20px 0; }
@@ -208,6 +211,7 @@
       <a href="#about">ABOUT</a>
       <a href="#contact">Contact</a>
       <a href="https://www.behance.net/aleksmel" target="_blank" rel="noopener">Behance</a>
+      <a class="nav-cv" href="Aleksandr_Meliksetyan_CV.pdf" download aria-label="Download CV (PDF)"><span>CV</span><span class="gicon" aria-hidden="true">download</span></a>
     </div>
   </div>
 </nav>
@@ -230,7 +234,6 @@
   <div class="cta-row">
     <a class="cta primary" href="#work"><span>SEE THE WORK</span><span>03</span></a>
     <a class="cta" href="https://www.behance.net/aleksmel" target="_blank" rel="noopener"><span>FULL BEHANCE PORTFOLIO</span><span class="gicon">arrow_outward</span></a>
-    <a class="cta cta-cv" href="Aleksandr_Meliksetyan_CV.pdf" download aria-label="Download CV (PDF)"><span>DOWNLOAD CV</span><span class="gicon" aria-hidden="true">download</span></a>
   </div>
 </header>
 
@@ -397,6 +400,7 @@
         <div class="field"><span class="l"><span class="gicon">mail</span> Email</span><a href="mailto:meliksetyanaleksandr@gmail.com">meliksetyanaleksandr@gmail.com</a></div>
         <div class="field"><span class="l"><span class="gicon">call</span> Phone</span><a href="tel:+37491532933">+374 91 532 933</a></div>
         <div class="field"><span class="l"><span class="gicon">open_in_new</span> Portfolio</span><a href="https://www.behance.net/aleksmel" target="_blank" rel="noopener">behance.net/aleksmel</a></div>
+        <div class="field"><span class="l"><span class="gicon">description</span> CV</span><a class="cv-link" href="Aleksandr_Meliksetyan_CV.pdf" download>Download PDF</a></div>
         <div class="field"><span class="l"><span class="gicon">location_on</span> Location</span><span>Yerevan, Armenia</span></div>
       </div>
     </div>
