@@ -875,8 +875,6 @@ html[data-ver="a"][data-nav="4"] .nav .menu-btn:hover { transform: scale(1.05); 
 .xp { display: grid; gap: 16px; }
 .xc { position: relative; overflow: hidden; isolation: isolate; display: grid; grid-template-columns: 240px minmax(0, 1fr); gap: 32px 48px; padding: clamp(24px, 3.4vw, 44px); border-radius: 30px; background: rgba(15,13,21,.72); border: 1px solid var(--line); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); transition: border-color .4s, transform .6s cubic-bezier(.2,.8,.2,1); }
 .xc::before { content: ""; position: absolute; z-index: -1; width: 520px; height: 520px; right: -160px; top: -220px; border-radius: 50%; background: var(--pc); filter: blur(120px); opacity: .22; transition: opacity .5s; }
-.xc:hover { border-color: color-mix(in srgb, var(--pc) 50%, transparent); }
-.xc:hover::before { opacity: .36; }
 .xc-side { display: grid; align-content: start; gap: 10px; }
 .xc-yr { font: 300 clamp(64px, 7vw, 110px)/.8 var(--display); letter-spacing: -.06em; color: transparent; -webkit-text-stroke: 1.2px var(--pc); }
 .xc-to { font: 500 12px/1.4 var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--fg-2); }
@@ -895,10 +893,8 @@ html[data-ver="a"][data-nav="4"] .nav .menu-btn:hover { transform: scale(1.05); 
 .xh p { color: var(--fg-2); font-size: 14px; line-height: 1.55; }
 .xc-proj { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-top: 18px; }
 .xpj { display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 16px; align-items: center; padding: 10px; border-radius: 20px; background: rgba(255,255,255,.03); border: 1px solid var(--line); text-decoration: none; color: inherit; transition: border-color .3s, background .3s; }
-.xpj:hover { border-color: color-mix(in srgb, var(--pc) 55%, transparent); background: color-mix(in srgb, var(--pc) 8%, transparent); }
 .xpj .shot { aspect-ratio: 4 / 3; border-radius: 12px; }
 .xpj .shot > img { transition: transform .8s cubic-bezier(.2,.8,.2,1); }
-.xpj:hover .shot > img { transform: scale(1.06); }
 .xpj-t { display: grid; gap: 5px; min-width: 0; }
 .xpj-t span { font: 500 11px/1 var(--mono); letter-spacing: .12em; text-transform: uppercase; color: var(--pc); }
 .xpj-t b { font: 700 24px/1 var(--display); letter-spacing: -.03em; }
@@ -1292,6 +1288,11 @@ body, button, input { font-family: var(--body); }
 .f2 { clip-path: inset(0 round 28px); -webkit-mask-image: -webkit-radial-gradient(white, black); }
 .xc, .edu { clip-path: inset(0 round 30px); -webkit-mask-image: -webkit-radial-gradient(white, black); }
 .bento .t { clip-path: inset(0 round var(--r)); }
+
+/* Experience: no hover states; glows drawn as gradients (no blur filter) so corners stay rounded */
+.xc::before { filter: none; opacity: .5; width: 760px; height: 760px; right: -300px; top: -360px; background: radial-gradient(closest-side, color-mix(in srgb, var(--pc) 55%, transparent), transparent); transition: none; }
+.edu::before { filter: none; opacity: .55; width: 760px; height: 760px; left: -300px; bottom: -400px; background: radial-gradient(closest-side, color-mix(in srgb, var(--pc) 55%, transparent), transparent); }
+.xc, .xpj { transition: none; }
 </style>
 </head>
 <body>
