@@ -16,9 +16,6 @@ img { max-width: 100%; }
 [hidden] { display: none !important; }
 </style>
 <title>Aleksandr Meliksetyan</title>
-</head>
-<body>
-
 <style>
 /* Layout: multi-page CV on hash routes. Inner pages are a 12-column bento; Work is a colonnade. Home has eight versions, each its own palette and motion. */
 :root {
@@ -1290,7 +1287,15 @@ body, button, input { font-family: var(--body); }
 @media (max-width: 980px) {
   .bento .t.feat { grid-row: auto; aspect-ratio: 4 / 3; min-height: 0; }
 }
+
+/* round-corner clipping for cards with blurred glows (WebKit lets filtered children escape border-radius) */
+.f2 { clip-path: inset(0 round 28px); -webkit-mask-image: -webkit-radial-gradient(white, black); }
+.xc, .edu { clip-path: inset(0 round 30px); -webkit-mask-image: -webkit-radial-gradient(white, black); }
+.bento .t { clip-path: inset(0 round var(--r)); }
 </style>
+</head>
+<body>
+
 
 <nav class="nav" aria-label="Pages">
   <div class="nav-inner">
@@ -2041,6 +2046,3 @@ return {
   go()
 })()
 </script>
-
-</body>
-</html>
