@@ -1421,6 +1421,16 @@ a:hover .ca.back svg, a:focus-visible .ca.back svg { transform: rotate(225deg) t
 @media (max-width: 560px) { .pj .cd-steps, .pj-fs, .pj-facts { grid-template-columns: minmax(0, 1fr); } }
 .col.open .shade { background: linear-gradient(180deg, rgba(7,6,10,0) 12%, rgba(7,6,10,.9) 46%, rgba(7,6,10,.98) 64%); }
 .col .shot > img { object-position: 50% 0 !important; }
+
+/* Toolkit tile: bigger tags */
+.bento .t.tk .chips { gap: 10px; }
+.bento .t.tk .chip { font: 500 clamp(15px, 1.25vw, 19px)/1 var(--body); padding: 14px 20px; color: #e4def2; border-color: #3a3350; background: rgba(255,255,255,.04); }
+.bento .t.tk .chip.on { color: var(--ink); background: var(--lav); border-color: var(--lav); }
+/* Work: collapsed columns show only the gradient */
+.col .grad { opacity: 1; }
+.col:not(.open) .shot > img { opacity: 0; }
+.col.open .grad { opacity: 0; }
+.col:not(.open) .shade { background: linear-gradient(180deg, rgba(7,6,10,0) 55%, rgba(7,6,10,.55) 100%); }
 </style>
 </head>
 <body>
