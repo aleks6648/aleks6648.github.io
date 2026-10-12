@@ -1532,6 +1532,13 @@ a:hover .ca.back svg, a:focus-visible .ca.back svg { transform: rotate(225deg) t
 .pw code { color: #c9c3d9; }
 .lavtile .lab { color: rgba(7,6,10,.78) !important; }
 .f2-quote .f2-l { color: #2e2160 !important; }
+
+/* Work: slightly smoother column transition */
+.col { transition: flex-grow .6s cubic-bezier(.25,.8,.25,1), border-color .3s; }
+.col .grad, .col .shot > img { transition: opacity .45s ease; }
+.col .body { transition: opacity .35s ease, transform .5s cubic-bezier(.25,.8,.25,1); }
+.col.open .body { transition-delay: .18s; }
+.col .vt, .col .vk { transition: opacity .3s ease; }
 </style>
 </head>
 <body>
