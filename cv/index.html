@@ -1311,6 +1311,73 @@ a:hover .ca.e svg, a:focus-visible .ca.e svg { transform: rotate(45deg) translat
 .aa-next i .ca { font-size: 1em; }
 .aa-next i .ca svg { stroke-width: 1.5; }
 @media (prefers-reduced-motion: reduce) { .ca svg, .ca .sh { transition: none; } }
+
+/* ================= Oct 12 · full-width pages ================= */
+.page, .wide { max-width: none; }
+.page > .wide, .page > .amb + .wide { padding-inline: clamp(0px, 2.2vw, 32px); }
+.page.active:not(.full) { min-height: calc(100svh - 176px - env(safe-area-inset-top, 0px)); }
+
+/* nav: full name, no monogram */
+.nav .mk-mono { display: none !important; }
+html[data-ver="a"] .nav a.mark .mk-short { white-space: nowrap; }
+
+/* About · toolkit (moved from Skills) */
+.ab-tk { display: grid; gap: 28px; margin-top: 96px; }
+.ab-tk-h { display: grid; gap: 14px; }
+.ab-tk-h h2 { font: 700 clamp(34px, 4.4vw, 64px)/1 var(--display); letter-spacing: -.045em; }
+.ab-tk-h p { color: var(--fg-2); font-size: 17px; max-width: 52ch; }
+
+/* Work · faster colonnade */
+.col { transition: flex-grow .42s cubic-bezier(.3,.7,.2,1), border-color .25s; }
+.col .grad { transition: opacity .4s, transform .6s cubic-bezier(.2,.8,.2,1); }
+.col .shot > img { transition: opacity .35s .06s, transform .5s .06s cubic-bezier(.2,.8,.2,1); }
+.col .shot > .ph-art { transition: opacity .35s .06s; }
+.col .body { transition: opacity .25s, transform .35s; }
+.col.open .body { transition-delay: .14s; }
+.col .vt, .col .vk { transition: opacity .2s; }
+.col-go { align-self: flex-start; display: inline-flex; align-items: center; gap: 10px; margin-top: 4px; padding: 11px 16px 11px 18px; border-radius: 999px; background: var(--lav); color: #0c0716; font: 600 15px/1 var(--body); }
+.col-go .ca:not(.arrow) { color: #0c0716; }
+.col.open:hover .col-go .ca .sh { opacity: 1; stroke-dashoffset: 0; }
+.col.open:hover .col-go .ca svg { transform: translate(2px, -2px); }
+.colonnade { height: calc(100svh - 300px - env(safe-area-inset-top, 0px)); min-height: 520px; }
+@media (max-width: 980px) { .colonnade { height: auto; min-height: 0; } }
+
+/* Project pages */
+.pj-back { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; color: var(--fg-2); font: 500 12px/1 var(--mono); letter-spacing: .14em; text-transform: uppercase; padding-block: 8px; }
+.pj-back:hover { color: var(--fg); }
+.ca.back svg { transform: rotate(225deg); }
+a:hover .ca.back svg, a:focus-visible .ca.back svg { transform: rotate(225deg) translate(2px, -2px); }
+.pj-hero { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 32px 64px; align-items: end; padding-block: 36px 48px; }
+.pj-ttl { display: grid; gap: 18px; min-width: 0; }
+.pj-ttl .eyebrow { color: var(--pc); }
+.pj-ttl h1 { font: 700 clamp(64px, 10vw, 176px)/.86 var(--display); letter-spacing: -.06em; overflow-wrap: anywhere; }
+.pj-intro { display: grid; gap: 20px; min-width: 0; }
+.pj-intro p { color: var(--fg-2); font-size: 18px; line-height: 1.6; max-width: 52ch; }
+.pj-intro .link-arrow { justify-self: start; }
+.pj-img { aspect-ratio: 16 / 8; max-width: 100%; border-radius: 28px; border: 1px solid var(--line); margin-bottom: 14px; box-shadow: 0 40px 100px rgba(0,0,0,.45); }
+.pj .case-deep { margin-top: 0; }
+.cd-s:hover { transform: none; border-color: var(--line); }
+.pj-next b { color: var(--fg); }
+.pj-next:hover b { color: var(--pc); }
+.pj-next .ca { color: var(--pc); }
+@media (max-width: 860px) { .pj-hero { grid-template-columns: minmax(0, 1fr); } .pj-img { aspect-ratio: 4 / 3; } }
+.pj-img > img { object-position: 50% 50%; }
+
+@media (min-width: 901px) {
+  .aa-hero2 { min-height: calc(100svh - 176px - env(safe-area-inset-top, 0px)); padding-block: 0 48px; }
+  .aa-photo { width: min(100%, calc(100svh - 260px), 760px); }
+  .aa-h { font-size: clamp(56px, 9.6vw, 200px); }
+}
+.colonnade { height: calc(100svh - 415px - env(safe-area-inset-top, 0px)); min-height: 420px; }
+@media (max-width: 980px) { .colonnade { height: auto; min-height: 0; } }
+.col .shot { inset: 22px 22px 285px 22px; }
+@media (max-width: 760px) { .col .shot { inset: 18px 18px 270px 18px; } }
+@media (min-width: 981px) {
+  #p-work > .wide { display: flex; flex-direction: column; height: calc(100svh - 176px - env(safe-area-inset-top, 0px)); min-height: 600px; }
+  #p-work .wk-head { padding-block: 8px 28px; }
+  #p-work .wk-head h1 { font-size: clamp(56px, min(9vw, 12vh), 140px); }
+  #p-work .colonnade { flex: 1; height: auto; min-height: 0; }
+}
 </style>
 </head>
 <body>
@@ -1318,12 +1385,11 @@ a:hover .ca.e svg, a:focus-visible .ca.e svg { transform: rotate(45deg) translat
 
 <nav class="nav" aria-label="Pages">
   <div class="nav-inner">
-    <a class="mark" href="#home" data-r="home"><span class="mk-mono" aria-hidden="true">AM</span><span class="mk-short">Aleksandr</span><span class="mk-full">Aleksandr<br>Meliksetyan</span><span class="mk-role">UI/UX Designer</span></a>
+    <a class="mark" href="#home" data-r="home"><span class="mk-short">Aleksandr Meliksetyan</span><span class="mk-full">Aleksandr<br>Meliksetyan</span><span class="mk-role">UI/UX Designer</span></a>
     <a class="hm" href="#home" data-r="home"><span class="nn">00</span><span class="tx">Home</span></a>
     <a href="#about" data-r="about"><i class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg></i><span class="nn">01</span><span class="tx">About</span></a>
     <a href="#experience" data-r="experience"><i class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"/></svg></i><span class="nn">02</span><span class="tx">Experience</span></a>
     <a href="#work" data-r="work"><i class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="8" height="8" rx="2"/><rect x="13" y="3" width="8" height="8" rx="2"/><rect x="3" y="13" width="8" height="8" rx="2"/><rect x="13" y="13" width="8" height="8" rx="2"/></svg></i><span class="nn">03</span><span class="tx">Work</span></a>
-    <a class="opt" href="#skills" data-r="skills"><i class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2l2.6 6.6L21 9.3l-5 4.5 1.5 6.9L12 17l-5.5 3.7L8 13.8 3 9.3l6.4-.7z"/></svg></i><span class="nn">04</span><span class="tx">Skills</span></a>
     <a href="#contact" data-r="contact"><i class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></i><span class="nn">05</span><span class="tx">Contact</span></a>
     <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu-ov"><span class="mb-l"><i></i><i></i></span><span class="mb-t">Menu</span></button>
   </div>
@@ -1331,7 +1397,7 @@ a:hover .ca.e svg, a:focus-visible .ca.e svg { transform: rotate(45deg) translat
 <div class="menu-ov" id="menu-ov" hidden>
   <div class="mo-top"><span>Aleksandr Meliksetyan · UI/UX Designer</span><button class="mo-x" type="button" aria-label="Close menu">Close ✕</button></div>
   <nav class="mo-list" aria-label="Pages">
-    <a href="#home">Home</a><a href="#about">About</a><a href="#experience">Experience</a><a href="#work">Work</a><a href="#skills">Skills</a><a href="#contact">Contact</a>
+    <a href="#home">Home</a><a href="#about">About</a><a href="#experience">Experience</a><a href="#work">Work</a><a href="#contact">Contact</a>
   </nav>
   <div class="mo-foot"><span>meliksetyanaleksandr@gmail.com</span><span>Yerevan, Armenia</span></div>
 </div>
@@ -1350,7 +1416,7 @@ a:hover .ca.e svg, a:focus-visible .ca.e svg { transform: rotate(45deg) translat
         <p class="lede">UI/UX designer with <b>4+ years</b> of turning ideas into digital products that serve users and business goals alike.</p>
       </div>
     </div>
-    <a class="t c-4 r-2 feat" href="#work">
+    <a class="t c-4 r-2 feat" href="#hayway">
       <div class="shot feat-img" data-shot="haywaysq"><div class="ph-art pa-hayway"><div class="pa-dev" style="color:#ff5a3c"></div><div class="pa-dev b" style="color:#7b61ff"></div></div></div>
       <div class="feat-over"><div class="lab lav">Featured case <span class="ca arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 6h10v10"/><path class="sh" d="M17.5 6.5L6 18"/></svg></span></div><p class="h-2 push">HayWay</p><p class="small" style="color:#d9d4e6">Taxi app · booking rides for the future</p></div>
     </a>
@@ -1361,7 +1427,7 @@ a:hover .ca.e svg, a:focus-visible .ca.e svg { transform: rotate(45deg) translat
       <p class="muted small push">UI/UX Designer · since 2025</p>
     </div>
     <div class="t c-2"><div class="lab">Years</div><div class="num push">4<small>+</small></div></div>
-    <a class="t c-5 tk" href="#skills">
+    <a class="t c-5 tk" href="#about">
       <div class="lab">Toolkit <span class="ca arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 6h10v10"/><path class="sh" d="M17.5 6.5L6 18"/></svg></span></div>
       <div class="chips push"><span class="chip on">Figma</span><span class="chip">Photoshop</span><span class="chip">Illustrator</span><span class="chip">Miro</span><span class="chip">Jira</span><span class="chip">Design systems</span></div>
     </a>
@@ -1410,6 +1476,15 @@ a:hover .ca.e svg, a:focus-visible .ca.e svg { transform: rotate(45deg) translat
 <div class="ps-blk"><span class="ap-l">What you get</span><div class="chips"><span class="chip on">Interactive prototype</span><span class="chip on">Component library</span><span class="chip on">Design system</span></div></div>
 <div class="ps-ex"><span class="ap-l">In practice · ISAA · Bizzy</span><p>At ISAA I refine design-system foundations and add components for product teams. At Bizzy, one component system serves both the website and the admin panel.</p></div></article></div>
 
+    <div class="ab-tk">
+      <div class="ab-tk-h"><span class="eyebrow">Toolkit</span><h2>What I work with</h2><p>What I use and how I work, from the first interview to the last component.</p></div>
+      <div class="sk-rows">
+        <div class="sk-row"><h2>Tools</h2><div class="items"><span>Figma</span><span>Photoshop</span><span>Illustrator</span><span>Miro</span><span>Jira</span><span>Notion</span><span>Claude</span><span>ChatGPT</span><span>Google AI Studio</span><span>Midjourney</span></div></div>
+        <div class="sk-row"><h2>Research</h2><div class="items"><span>Competitive</span><span>Quantitative</span><span>Qualitative</span><span>Personas</span><span>Journey maps</span><span>Affinity mapping</span><span>Card sorting</span><span>User testing</span><span>Prioritisation</span></div></div>
+        <div class="sk-row"><h2>Design</h2><div class="items"><span>Information architecture</span><span>User flows</span><span>Wireframes</span><span>Prototypes</span><span>Design systems</span><span>Components</span></div></div>
+      </div>
+    </div>
+
     <a class="aa-next" href="#experience"><span>Next</span><b>Experience</b><i><span class="ca e" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 6h10v10"/><path class="sh" d="M17.5 6.5L6 18"/></svg></span></i></a>
   </div>
 </section>
@@ -1424,13 +1499,13 @@ a:hover .ca.e svg, a:focus-visible .ca.e svg { transform: rotate(45deg) translat
     </div>
     <div class="xp">
       <article class="xc now xc-blue" style="--pc:#4d9bff">
-        <div class="xc-side"><span class="xc-yr">2026</span><span class="xc-to">Mar 2026 - now</span><span class="live" data-since="2026-03"><span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span><b>Now</b><em></em></span></div>
+        <div class="xc-side"><span class="xc-yr">2026</span><span class="xc-to">Mar 2026 - now</span><span class="live" data-since="2026-03"><b>Now</b><em></em></span></div>
         <div class="xc-main"><span class="xc-role">UI/UX Designer</span><h2>ISAA</h2><p class="xc-org">Informational Systems Agency of Armenia</p><a class="xc-link" href="https://www.figma.com/community/file/1257654638425705295" target="_blank" rel="noopener">Henaket design system <span class="ca" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 6h10v10"/><path class="sh" d="M17.5 6.5L6 18"/></svg></span></a>
           <div class="xc-hl"><div class="xh"><span class="xh-n">01</span><b>Public services</b><p>Digital services used at national scale, balancing accessibility requirements with clarity.</p></div><div class="xh"><span class="xh-n">02</span><b>Design system</b><p>Refined existing foundations and added new components for product teams.</p></div><div class="xh"><span class="xh-n">03</span><b>Design audits</b><p>Audits across products, covering design-system compliance and quality.</p></div></div>
         </div>
       </article>
       <article class="xc now" style="--pc:#ff8ad8">
-        <div class="xc-side"><span class="xc-yr">2025</span><span class="xc-to">Jul 2025 - now</span><span class="live" data-since="2025-07"><span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span><b>Now</b><em></em></span></div>
+        <div class="xc-side"><span class="xc-yr">2025</span><span class="xc-to">Jul 2025 - now</span><span class="live" data-since="2025-07"><b>Now</b><em></em></span></div>
         <div class="xc-main"><span class="xc-role">UI/UX Designer</span><h2>Bizzy Agency</h2><p class="xc-org">Digital agency</p>
           <div class="xc-hl"><div class="xh"><span class="xh-n">01</span><b>Website</b><p>The full agency website: modern UI, clean visual identity and a conversion-minded structure.</p></div><div class="xh"><span class="xh-n">02</span><b>Admin panel</b><p>The complete admin interface with data-dense views and responsive layouts.</p></div><div class="xh"><span class="xh-n">03</span><b>Components</b><p>One scalable component system shared by the site and the admin product.</p></div></div>
         </div>
@@ -1439,8 +1514,8 @@ a:hover .ca.e svg, a:focus-visible .ca.e svg { transform: rotate(45deg) translat
         <div class="xc-side"><span class="xc-yr">2022</span><span class="xc-to">Dec 2022 - Jul 2025</span></div>
         <div class="xc-main"><span class="xc-role">UI/UX Designer</span><h2>Independent</h2><p class="xc-org">Product concepts, end to end</p>
           <div class="xc-proj">
-            <a class="xpj" href="#work" style="--pc:#FF5A1F"><div class="shot" data-shot="hayway-x"><div class="ph-art pa-hayway"></div></div><div class="xpj-t"><span>Mobile app</span><b>HayWay</b><p>Taxi app with transparent pricing, shared fares and rides booked ahead.</p></div></a>
-            <a class="xpj" href="#work" style="--pc:#3D7BFF"><div class="shot" data-shot="skatey-x"><div class="ph-art pa-skatey"></div></div><div class="xpj-t"><span>E-commerce</span><b>Skatey</b><p>Ice-skating store where beginners and pros find the right skates fast.</p></div></a>
+            <a class="xpj" href="#hayway" style="--pc:#FF5A1F"><div class="shot" data-shot="hayway-x"><div class="ph-art pa-hayway"></div></div><div class="xpj-t"><span>Mobile app</span><b>HayWay</b><p>Taxi app with transparent pricing, shared fares and rides booked ahead.</p></div></a>
+            <a class="xpj" href="#skatey" style="--pc:#3D7BFF"><div class="shot" data-shot="skatey-x"><div class="ph-art pa-skatey"></div></div><div class="xpj-t"><span>E-commerce</span><b>Skatey</b><p>Ice-skating store where beginners and pros find the right skates fast.</p></div></a>
           </div>
         </div>
       </article>
@@ -1467,93 +1542,109 @@ a:hover .ca.e svg, a:focus-visible .ca.e svg { transform: rotate(45deg) translat
       <div class="wk-count"><b>05</b>projects · 2022 - 2026</div>
     </div>
     <div class="colonnade" role="tablist" aria-label="Projects">
-      <button class="col open" role="tab" aria-selected="true">
+      <button class="col open" role="tab" aria-selected="true" data-href="#hayway">
         <div class="grad g-hayway"></div><div class="shot" data-shot="hayway"><div class="ph-art pa-hayway"><div class="pa-dev" style="color:#ff5a3c"></div><div class="pa-dev b" style="color:#7b61ff"></div></div></div><div class="shade"></div>
         <span class="vk">APP</span><span class="vt">HayWay</span>
-        <div class="body"><div class="lab lav">Mobile app · case study</div><h3>HayWay</h3><p>A taxi app for Yerevan that fixes payment confusion and lets riders book rides for the future.</p><div class="meta"><span><b>Role</b> End-to-end UX/UI</span><span><b>Platform</b> iOS · Android</span></div></div>
+        <div class="body"><div class="lab lav">Mobile app · case study</div><h3>HayWay</h3><p>A taxi app for Yerevan that fixes payment confusion and lets riders book rides for the future.</p><div class="meta"><span><b>Role</b> End-to-end UX/UI</span><span><b>Platform</b> iOS · Android</span></div><span class="col-go">Open case <span class="ca" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 6h10v10"/><path class="sh" d="M17.5 6.5L6 18"/></svg></span></span></div>
       </button>
-      <button class="col" role="tab" aria-selected="false">
+      <button class="col" role="tab" aria-selected="false" data-href="#skatey">
         <div class="grad g-skatey"></div><div class="shot" data-shot="skatey"><div class="ph-art pa-skatey"><div class="pa-web" style="color:#0f9f8f"></div></div></div><div class="shade"></div>
         <span class="vk">WEB</span><span class="vt">Skatey</span>
-        <div class="body"><div class="lab lav">E-commerce · case study</div><h3>Skatey</h3><p>An online ice-skating store where beginners and pros find the right skates fast.</p><div class="meta"><span><b>Role</b> UX research · UI</span><span><b>Platform</b> Web</span></div></div>
+        <div class="body"><div class="lab lav">E-commerce · case study</div><h3>Skatey</h3><p>An online ice-skating store where beginners and pros find the right skates fast.</p><div class="meta"><span><b>Role</b> UX research · UI</span><span><b>Platform</b> Web</span></div><span class="col-go">Open case <span class="ca" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 6h10v10"/><path class="sh" d="M17.5 6.5L6 18"/></svg></span></span></div>
       </button>
-      <button class="col" role="tab" aria-selected="false">
+      <button class="col" role="tab" aria-selected="false" data-href="#meduza">
         <div class="grad g-meduza"></div><div class="shot" data-shot="meduza"><div class="ph-art pa-meduza"><div class="pa-dev" style="color:#e6b94a"></div></div></div><div class="shade"></div>
         <span class="vk">APP</span><span class="vt">Meduza</span>
-        <div class="body"><div class="lab lav">News app · redesign</div><h3>Meduza</h3><p>A redesign concept for Meduza across mobile and web: today’s news, blitz news and podcasts in one calm dark interface.</p><div class="meta"><span><b>Role</b> UX/UI redesign</span><span><b>Platform</b> Mobile · Web</span></div></div>
+        <div class="body"><div class="lab lav">News app · redesign</div><h3>Meduza</h3><p>A redesign concept for Meduza across mobile and web: today’s news, blitz news and podcasts in one calm dark interface.</p><div class="meta"><span><b>Role</b> UX/UI redesign</span><span><b>Platform</b> Mobile · Web</span></div><span class="col-go">Open case <span class="ca" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 6h10v10"/><path class="sh" d="M17.5 6.5L6 18"/></svg></span></span></div>
       </button>
-      <button class="col" role="tab" aria-selected="false">
+      <button class="col" role="tab" aria-selected="false" data-href="#isaa">
         <div class="grad g-isaa"></div><div class="shot" data-shot="isaa"><div class="ph-art pa-isaa"><div class="pa-web" style="color:#1d4ed8"></div></div></div><div class="shade"></div>
         <span class="vk">GOV</span><span class="vt">ISAA</span>
-        <div class="body"><div class="lab lav">Public sector · 2026 - now</div><h3>ISAA</h3><p>National-scale digital services and the agency design system.</p><div class="meta"><span><b>Role</b> UI/UX Designer</span><span><b>Scope</b> Services · System</span></div></div>
+        <div class="body"><div class="lab lav">Public sector · 2026 - now</div><h3>ISAA</h3><p>National-scale digital services and the agency design system.</p><div class="meta"><span><b>Role</b> UI/UX Designer</span><span><b>Scope</b> Services · System</span></div><span class="col-go">Open case <span class="ca" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 6h10v10"/><path class="sh" d="M17.5 6.5L6 18"/></svg></span></span></div>
       </button>
-      <button class="col" role="tab" aria-selected="false">
+      <button class="col" role="tab" aria-selected="false" data-href="#bizzy">
         <div class="grad g-bizzy"></div><div class="shot" data-shot="bizzy"><div class="ph-art pa-bizzy"><div class="pa-web" style="color:#a100ff"></div></div></div><div class="shade"></div>
         <span class="vk">WEB</span><span class="vt">Bizzy Agency</span>
-        <div class="body"><div class="lab lav">Agency · 2025 - now</div><h3>Bizzy Agency</h3><p>The agency website and its complete admin panel on one component system.</p><div class="meta"><span><b>Role</b> UI/UX Designer</span><span><b>Scope</b> Web · Admin</span></div></div>
+        <div class="body"><div class="lab lav">Agency · 2025 - now</div><h3>Bizzy Agency</h3><p>The agency website and its complete admin panel on one component system.</p><div class="meta"><span><b>Role</b> UI/UX Designer</span><span><b>Scope</b> Web · Admin</span></div><span class="col-go">Open case <span class="ca" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 6h10v10"/><path class="sh" d="M17.5 6.5L6 18"/></svg></span></span></div>
       </button>
     </div>
 
-    <div class="cases">
-      <article class="case" style="--pc:#FF5A1F">
-        <div class="case-img shot" data-shot="hayway-2"><div class="ph-art pa-hayway"><div class="pa-dev" style="color:#ff5a3c"></div><div class="pa-dev b" style="color:#7b61ff"></div></div><span class="ph-tag">Behance shot</span></div>
-        <div class="case-txt">
-          <span class="k">01 · Mobile app</span><h2>HayWay</h2>
-          <p>Taxi apps in Armenia made payments confusing and splitting a fare awkward. I ran personas, journey mapping and feature prioritisation to set the MVP, then designed flows, wireframes and prototypes.</p>
-          <div class="case-meta"><div><span>Outcome</span><b>Booking with transparent pricing and shared fares</b></div><div><span>Built on</span><b>Reusable component library</b></div></div>
-          <a class="link-arrow" href="https://www.behance.net/gallery/228526629/HayWay-Mobile-App-Case-Study" target="_blank" rel="noopener">Full case on Behance <span class="ca" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 6h10v10"/><path class="sh" d="M17.5 6.5L6 18"/></svg></span></a>
-        </div>
-      <div class="case-deep"><div class="cd-steps"><div class="cd-s"><span class="cd-n">01</span><span class="cd-h">Challenge</span><p>Riders in Armenia deal with confusing payments, awkward fare splitting and no easy way to plan a trip ahead.</p></div><div class="cd-s"><span class="cd-n">02</span><span class="cd-h">Approach</span><p>Personas, customer journey mapping and feature prioritisation defined the MVP. Then user flows, wireframes and prototypes.</p></div><div class="cd-s"><span class="cd-n">03</span><span class="cd-h">Result</span><p>A booking flow with transparent pricing and shared fares, plus “Booking rides for future” to schedule trips ahead. Built on a reusable component library.</p></div></div><div class="cd-foot2"><div class="cd-scr2"><span class="cd-h">Key screens</span><ol><li><span>01</span>Onboarding</li><li><span>02</span>Map with pick-up and destination</li><li><span>03</span>Ride booking</li><li><span>04</span>Shared fare</li></ol></div><div class="cd-pal2"><span class="cd-h">Palette</span><div class="pws"><div class="pw"><i style="background:#1E1E1E"></i><code>#1E1E1E</code></div><div class="pw"><i style="background:#FF5A1F"></i><code>#FF5A1F</code></div><div class="pw"><i style="background:#FFFFFF"></i><code>#FFFFFF</code></div></div></div></div></div></article>
-      <article class="case" style="--pc:#3D7BFF">
-        <div class="case-img shot" data-shot="skatey-2"><div class="ph-art pa-skatey"><div class="pa-web" style="color:#0f9f8f"></div></div><span class="ph-tag">Behance shot</span></div>
-        <div class="case-txt">
-          <span class="k">02 · E-commerce</span><h2>Skatey</h2>
-          <p>An ice-skating store concept built so that beginners and pros both find what they need. Market and competitor analysis turned into personas and journey maps, then clear category navigation.</p>
-          <div class="case-meta"><div><span>Focus</span><b>Product discovery</b></div><div><span>Delivered</span><b>Prototypes and a flexible design system</b></div></div>
-          <a class="link-arrow" href="https://www.behance.net/gallery/203145401/Skatey-Web-Case-Study" target="_blank" rel="noopener">Full case on Behance <span class="ca" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 6h10v10"/><path class="sh" d="M17.5 6.5L6 18"/></svg></span></a>
-        </div>
-      <div class="case-deep"><div class="cd-steps"><div class="cd-s"><span class="cd-n">01</span><span class="cd-h">Challenge</span><p>Buying skates online is hard for beginners and slow for pros: many models, sizes and categories.</p></div><div class="cd-s"><span class="cd-n">02</span><span class="cd-h">Approach</span><p>Market and competitor analysis turned into personas and journey maps, then clear navigation: Products, Accessories, Sales, Support.</p></div><div class="cd-s"><span class="cd-n">03</span><span class="cd-h">Result</span><p>A bold storefront with a seasonal “New arrivals” hero, filter chips on mobile, visible discounts and a direct “Buy now”, on a flexible design system.</p></div></div><div class="cd-foot2"><div class="cd-scr2"><span class="cd-h">Key screens</span><ol><li><span>01</span>Home</li><li><span>02</span>New arrivals</li><li><span>03</span>Mobile catalogue with filters</li><li><span>04</span>Product card</li></ol></div><div class="cd-pal2"><span class="cd-h">Palette</span><div class="pws"><div class="pw"><i style="background:#1452D8"></i><code>#1452D8</code></div><div class="pw"><i style="background:#FF6A3D"></i><code>#FF6A3D</code></div><div class="pw"><i style="background:#FFFFFF"></i><code>#FFFFFF</code></div><div class="pw"><i style="background:#0B0B0F"></i><code>#0B0B0F</code></div></div></div></div></div></article>
-      <article class="case" style="--pc:#E8A04C">
-        <div class="case-img shot" data-shot="meduza-2"><div class="ph-art pa-meduza"><div class="pa-dev" style="color:#e6b94a"></div><div class="pa-dev b" style="color:#b9a3ff"></div></div><span class="ph-tag">Behance shot</span></div>
-        <div class="case-txt">
-          <span class="k">03 · Redesign</span><h2>Meduza News</h2>
-          <p>Instant updates, breaking news. A redesign concept that brings Meduza’s news, blitz news and podcasts together in a calm dark interface on the phone and on the web.</p>
-          <div class="case-meta"><div><span>Type</span><b>Concept redesign</b></div><div><span>Platform</span><b>Mobile app · Website</b></div></div>
-          <a class="link-arrow" href="https://www.behance.net/gallery/189455575/Meduza-News-App-(Redesign)" target="_blank" rel="noopener">Full case on Behance <span class="ca" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 6h10v10"/><path class="sh" d="M17.5 6.5L6 18"/></svg></span></a>
-        </div>
-      <div class="case-deep"><div class="cd-steps"><div class="cd-s"><span class="cd-n">01</span><span class="cd-h">Goal</span><p>Bring news, podcasts, audiobooks, stories and books into one place that is quick to scan.</p></div><div class="cd-s"><span class="cd-n">02</span><span class="cd-h">Structure</span><p>Top navigation for each content type, a home built from “News today” and “Blitz news”, and a mobile tab bar: Home, Favorite, Saved, Settings.</p></div><div class="cd-s"><span class="cd-n">03</span><span class="cd-h">Interface</span><p>A calm dark UI with one amber accent, bookmarkable news cards with publish time, and a podcast library with episode counts and a quick “Listen”.</p></div></div><div class="cd-foot2"><div class="cd-scr2"><span class="cd-h">Key screens</span><ol><li><span>01</span>Web home</li><li><span>02</span>News today</li><li><span>03</span>Blitz news</li><li><span>04</span>Podcasts on mobile</li></ol></div><div class="cd-pal2"><span class="cd-h">Palette</span><div class="pws"><div class="pw"><i style="background:#0E0E0E"></i><code>#0E0E0E</code></div><div class="pw"><i style="background:#E8A04C"></i><code>#E8A04C</code></div><div class="pw"><i style="background:#FFFFFF"></i><code>#FFFFFF</code></div></div></div></div></div></article>
-      <article class="case" style="--pc:#60A5FA">
-        <div class="case-img shot" data-shot="isaa-2"><div class="ph-art pa-isaa"><div class="pa-web" style="color:#1d4ed8"></div></div><span class="ph-tag">Project shot</span></div>
-        <div class="case-txt">
-          <span class="k">04 · Public sector</span><h2>ISAA</h2>
-          <p>Digital services for the Informational Systems Agency of Armenia, used at national scale. I refine the design system’s foundations, add components for product teams and audit products for consistency.</p>
-          <div class="case-meta"><div><span>Since</span><b>March 2026</b></div><div><span>Scope</span><b>Services, design system, audits</b></div></div>
-          <a class="link-arrow" href="https://www.figma.com/community/file/1257654638425705295" target="_blank" rel="noopener">Henaket design system in Figma <span class="ca" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 6h10v10"/><path class="sh" d="M17.5 6.5L6 18"/></svg></span></a>
-        </div>
-      <div class="case-deep"><div class="cd-steps"><div class="cd-s"><span class="cd-n">01</span><span class="cd-h">Context</span><p>Public-sector digital services at the Informational Systems Agency of Armenia, used at national scale.</p></div><div class="cd-s"><span class="cd-n">02</span><span class="cd-h">Design system</span><p>Refined the agency design system’s foundations and added new components for product teams.</p></div><div class="cd-s"><span class="cd-n">03</span><span class="cd-h">Audits</span><p>Ran design audits across products, covering design-system compliance and quality.</p></div></div><div class="cd-foot2"><div class="cd-scr2"><span class="cd-h">Key screens</span><ol><li><span>01</span>Public services</li><li><span>02</span>Design system</li><li><span>03</span>Components</li><li><span>04</span>Audits</li></ol></div><div class="cd-pal2"><span class="cd-h">Platform</span><p class="cd-plat">Web</p></div></div></div></article>
-      <article class="case" style="--pc:#C04DFF">
-        <div class="case-img shot" data-shot="bizzy-2"><div class="ph-art pa-bizzy"><div class="pa-web" style="color:#a100ff"></div></div><span class="ph-tag">Project shot</span></div>
-        <div class="case-txt">
-          <span class="k">05 · Agency</span><h2>Bizzy Agency</h2>
-          <p>The full agency website with a clean identity and a conversion-minded structure, plus the complete admin panel with data-dense, responsive views. One component system serves both.</p>
-          <div class="case-meta"><div><span>Since</span><b>July 2025</b></div><div><span>Scope</span><b>Website, admin, components</b></div></div>
-        </div>
-      <div class="case-deep"><div class="cd-steps"><div class="cd-s"><span class="cd-n">01</span><span class="cd-h">Website</span><p>The full Bizzy Agency website: modern UI, a clean visual identity and a conversion-minded structure.</p></div><div class="cd-s"><span class="cd-n">02</span><span class="cd-h">Admin panel</span><p>The complete admin interface, including data-dense views and responsive layouts.</p></div><div class="cd-s"><span class="cd-n">03</span><span class="cd-h">System</span><p>A scalable component system shared by the marketing site and the admin product.</p></div></div><div class="cd-foot2"><div class="cd-scr2"><span class="cd-h">Key screens</span><ol><li><span>01</span>Marketing site</li><li><span>02</span>Admin dashboard</li><li><span>03</span>Data views</li><li><span>04</span>Components</li></ol></div><div class="cd-pal2"><span class="cd-h">Platform</span><p class="cd-plat">Web · Admin</p></div></div></div></article>
-    </div>
   </div>
 </section>
 
-<!-- ================= SKILLS · index ================= -->
-<section class="page" id="p-skills" aria-label="Skills">
+
+<!-- ================= PROJECT · HayWay ================= -->
+<section class="page pj" id="p-hayway" aria-label="HayWay case study" style="--pc:#FF5A1F">
   <div class="amb" aria-hidden="true"><i></i><i></i><i></i></div>
   <div class="wide">
-    <div class="sk-head"><span class="eyebrow">Skills</span><h1>Toolkit</h1><p>What I use and how I work, from the first interview to the last component.</p></div>
-    <div class="sk-rows">
-      <div class="sk-row"><h2>Tools</h2><div class="items"><span>Figma</span><span>Photoshop</span><span>Illustrator</span><span>Miro</span><span>Jira</span><span>Notion</span><span>Claude</span><span>ChatGPT</span><span>Google AI Studio</span><span>Midjourney</span></div></div>
-      <div class="sk-row"><h2>Research</h2><div class="items"><span>Competitive</span><span>Quantitative</span><span>Qualitative</span><span>Personas</span><span>Journey maps</span><span>Affinity mapping</span><span>Card sorting</span><span>User testing</span><span>Prioritisation</span></div></div>
-      <div class="sk-row"><h2>Design</h2><div class="items"><span>Information architecture</span><span>User flows</span><span>Wireframes</span><span>Prototypes</span><span>Design systems</span><span>Components</span></div></div>
-      <div class="sk-row"><h2>Languages</h2><div class="lg"><div>Armenian<i style="--w:100%"></i><span>C2</span></div><div>Russian<i style="--w:84%"></i><span>C1</span></div><div>English<i style="--w:66%"></i><span>B2</span></div></div></div>
+    <a class="pj-back" href="#work"><span class="ca back" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 6h10v10"/><path class="sh" d="M17.5 6.5L6 18"/></svg></span>All work</a>
+    <div class="pj-hero">
+      <div class="pj-ttl"><span class="eyebrow">Mobile app</span><h1>HayWay</h1></div>
+      <div class="pj-intro"><p>Taxi apps in Armenia made payments confusing and splitting a fare awkward. I ran personas, journey mapping and feature prioritisation to set the MVP, then designed flows, wireframes and prototypes.</p><div class="case-meta"><div><span>Outcome</span><b>Booking with transparent pricing and shared fares</b></div><div><span>Built on</span><b>Reusable component library</b></div></div><a class="link-arrow" href="https://www.behance.net/gallery/228526629/HayWay-Mobile-App-Case-Study" target="_blank" rel="noopener">Full case on Behance <span class="ca" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 6h10v10"/><path class="sh" d="M17.5 6.5L6 18"/></svg></span></a></div>
     </div>
+    <div class="pj-img shot" data-shot="hayway-p"><div class="ph-art pa-hayway"><div class="pa-dev" style="color:#ff5a3c"></div><div class="pa-dev b" style="color:#7b61ff"></div></div></div>
+    <div class="case-deep"><div class="cd-steps"><div class="cd-s"><span class="cd-n">01</span><span class="cd-h">Challenge</span><p>Riders in Armenia deal with confusing payments, awkward fare splitting and no easy way to plan a trip ahead.</p></div><div class="cd-s"><span class="cd-n">02</span><span class="cd-h">Approach</span><p>Personas, customer journey mapping and feature prioritisation defined the MVP. Then user flows, wireframes and prototypes.</p></div><div class="cd-s"><span class="cd-n">03</span><span class="cd-h">Result</span><p>A booking flow with transparent pricing and shared fares, plus “Booking rides for future” to schedule trips ahead. Built on a reusable component library.</p></div></div><div class="cd-foot2"><div class="cd-scr2"><span class="cd-h">Key screens</span><ol><li><span>01</span>Onboarding</li><li><span>02</span>Map with pick-up and destination</li><li><span>03</span>Ride booking</li><li><span>04</span>Shared fare</li></ol></div><div class="cd-pal2"><span class="cd-h">Palette</span><div class="pws"><div class="pw"><i style="background:#1E1E1E"></i><code>#1E1E1E</code></div><div class="pw"><i style="background:#FF5A1F"></i><code>#FF5A1F</code></div><div class="pw"><i style="background:#FFFFFF"></i><code>#FFFFFF</code></div></div></div></div></div>
+    <a class="aa-next pj-next" href="#skatey"><span>Next project</span><b>Skatey</b><i><span class="ca e" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 6h10v10"/><path class="sh" d="M17.5 6.5L6 18"/></svg></span></i></a>
+  </div>
+</section>
+
+<!-- ================= PROJECT · Skatey ================= -->
+<section class="page pj" id="p-skatey" aria-label="Skatey case study" style="--pc:#3D7BFF">
+  <div class="amb" aria-hidden="true"><i></i><i></i><i></i></div>
+  <div class="wide">
+    <a class="pj-back" href="#work"><span class="ca back" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 6h10v10"/><path class="sh" d="M17.5 6.5L6 18"/></svg></span>All work</a>
+    <div class="pj-hero">
+      <div class="pj-ttl"><span class="eyebrow">E-commerce</span><h1>Skatey</h1></div>
+      <div class="pj-intro"><p>An ice-skating store concept built so that beginners and pros both find what they need. Market and competitor analysis turned into personas and journey maps, then clear category navigation.</p><div class="case-meta"><div><span>Focus</span><b>Product discovery</b></div><div><span>Delivered</span><b>Prototypes and a flexible design system</b></div></div><a class="link-arrow" href="https://www.behance.net/gallery/203145401/Skatey-Web-Case-Study" target="_blank" rel="noopener">Full case on Behance <span class="ca" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 6h10v10"/><path class="sh" d="M17.5 6.5L6 18"/></svg></span></a></div>
+    </div>
+    <div class="pj-img shot" data-shot="skatey-p"><div class="ph-art pa-skatey"><div class="pa-web" style="color:#0f9f8f"></div></div></div>
+    <div class="case-deep"><div class="cd-steps"><div class="cd-s"><span class="cd-n">01</span><span class="cd-h">Challenge</span><p>Buying skates online is hard for beginners and slow for pros: many models, sizes and categories.</p></div><div class="cd-s"><span class="cd-n">02</span><span class="cd-h">Approach</span><p>Market and competitor analysis turned into personas and journey maps, then clear navigation: Products, Accessories, Sales, Support.</p></div><div class="cd-s"><span class="cd-n">03</span><span class="cd-h">Result</span><p>A bold storefront with a seasonal “New arrivals” hero, filter chips on mobile, visible discounts and a direct “Buy now”, on a flexible design system.</p></div></div><div class="cd-foot2"><div class="cd-scr2"><span class="cd-h">Key screens</span><ol><li><span>01</span>Home</li><li><span>02</span>New arrivals</li><li><span>03</span>Mobile catalogue with filters</li><li><span>04</span>Product card</li></ol></div><div class="cd-pal2"><span class="cd-h">Palette</span><div class="pws"><div class="pw"><i style="background:#1452D8"></i><code>#1452D8</code></div><div class="pw"><i style="background:#FF6A3D"></i><code>#FF6A3D</code></div><div class="pw"><i style="background:#FFFFFF"></i><code>#FFFFFF</code></div><div class="pw"><i style="background:#0B0B0F"></i><code>#0B0B0F</code></div></div></div></div></div>
+    <a class="aa-next pj-next" href="#meduza"><span>Next project</span><b>Meduza</b><i><span class="ca e" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 6h10v10"/><path class="sh" d="M17.5 6.5L6 18"/></svg></span></i></a>
+  </div>
+</section>
+
+<!-- ================= PROJECT · Meduza News ================= -->
+<section class="page pj" id="p-meduza" aria-label="Meduza News case study" style="--pc:#E8A04C">
+  <div class="amb" aria-hidden="true"><i></i><i></i><i></i></div>
+  <div class="wide">
+    <a class="pj-back" href="#work"><span class="ca back" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 6h10v10"/><path class="sh" d="M17.5 6.5L6 18"/></svg></span>All work</a>
+    <div class="pj-hero">
+      <div class="pj-ttl"><span class="eyebrow">Redesign</span><h1>Meduza News</h1></div>
+      <div class="pj-intro"><p>Instant updates, breaking news. A redesign concept that brings Meduza’s news, blitz news and podcasts together in a calm dark interface on the phone and on the web.</p><div class="case-meta"><div><span>Type</span><b>Concept redesign</b></div><div><span>Platform</span><b>Mobile app · Website</b></div></div><a class="link-arrow" href="https://www.behance.net/gallery/189455575/Meduza-News-App-(Redesign)" target="_blank" rel="noopener">Full case on Behance <span class="ca" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 6h10v10"/><path class="sh" d="M17.5 6.5L6 18"/></svg></span></a></div>
+    </div>
+    <div class="pj-img shot" data-shot="meduza-p"><div class="ph-art pa-meduza"><div class="pa-dev" style="color:#e6b94a"></div><div class="pa-dev b" style="color:#b9a3ff"></div></div></div>
+    <div class="case-deep"><div class="cd-steps"><div class="cd-s"><span class="cd-n">01</span><span class="cd-h">Goal</span><p>Bring news, podcasts, audiobooks, stories and books into one place that is quick to scan.</p></div><div class="cd-s"><span class="cd-n">02</span><span class="cd-h">Structure</span><p>Top navigation for each content type, a home built from “News today” and “Blitz news”, and a mobile tab bar: Home, Favorite, Saved, Settings.</p></div><div class="cd-s"><span class="cd-n">03</span><span class="cd-h">Interface</span><p>A calm dark UI with one amber accent, bookmarkable news cards with publish time, and a podcast library with episode counts and a quick “Listen”.</p></div></div><div class="cd-foot2"><div class="cd-scr2"><span class="cd-h">Key screens</span><ol><li><span>01</span>Web home</li><li><span>02</span>News today</li><li><span>03</span>Blitz news</li><li><span>04</span>Podcasts on mobile</li></ol></div><div class="cd-pal2"><span class="cd-h">Palette</span><div class="pws"><div class="pw"><i style="background:#0E0E0E"></i><code>#0E0E0E</code></div><div class="pw"><i style="background:#E8A04C"></i><code>#E8A04C</code></div><div class="pw"><i style="background:#FFFFFF"></i><code>#FFFFFF</code></div></div></div></div></div>
+    <a class="aa-next pj-next" href="#isaa"><span>Next project</span><b>ISAA</b><i><span class="ca e" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 6h10v10"/><path class="sh" d="M17.5 6.5L6 18"/></svg></span></i></a>
+  </div>
+</section>
+
+<!-- ================= PROJECT · ISAA ================= -->
+<section class="page pj" id="p-isaa" aria-label="ISAA case study" style="--pc:#60A5FA">
+  <div class="amb" aria-hidden="true"><i></i><i></i><i></i></div>
+  <div class="wide">
+    <a class="pj-back" href="#work"><span class="ca back" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 6h10v10"/><path class="sh" d="M17.5 6.5L6 18"/></svg></span>All work</a>
+    <div class="pj-hero">
+      <div class="pj-ttl"><span class="eyebrow">Public sector</span><h1>ISAA</h1></div>
+      <div class="pj-intro"><p>Digital services for the Informational Systems Agency of Armenia, used at national scale. I refine the design system’s foundations, add components for product teams and audit products for consistency.</p><div class="case-meta"><div><span>Since</span><b>March 2026</b></div><div><span>Scope</span><b>Services, design system, audits</b></div></div><a class="link-arrow" href="https://www.figma.com/community/file/1257654638425705295" target="_blank" rel="noopener">Henaket design system in Figma <span class="ca" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 6h10v10"/><path class="sh" d="M17.5 6.5L6 18"/></svg></span></a></div>
+    </div>
+    <div class="pj-img shot" data-shot="isaa-p"><div class="ph-art pa-isaa"><div class="pa-web" style="color:#1d4ed8"></div></div></div>
+    <div class="case-deep"><div class="cd-steps"><div class="cd-s"><span class="cd-n">01</span><span class="cd-h">Context</span><p>Public-sector digital services at the Informational Systems Agency of Armenia, used at national scale.</p></div><div class="cd-s"><span class="cd-n">02</span><span class="cd-h">Design system</span><p>Refined the agency design system’s foundations and added new components for product teams.</p></div><div class="cd-s"><span class="cd-n">03</span><span class="cd-h">Audits</span><p>Ran design audits across products, covering design-system compliance and quality.</p></div></div><div class="cd-foot2"><div class="cd-scr2"><span class="cd-h">Key screens</span><ol><li><span>01</span>Public services</li><li><span>02</span>Design system</li><li><span>03</span>Components</li><li><span>04</span>Audits</li></ol></div><div class="cd-pal2"><span class="cd-h">Platform</span><p class="cd-plat">Web</p></div></div></div>
+    <a class="aa-next pj-next" href="#bizzy"><span>Next project</span><b>Bizzy Agency</b><i><span class="ca e" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 6h10v10"/><path class="sh" d="M17.5 6.5L6 18"/></svg></span></i></a>
+  </div>
+</section>
+
+<!-- ================= PROJECT · Bizzy Agency ================= -->
+<section class="page pj" id="p-bizzy" aria-label="Bizzy Agency case study" style="--pc:#C04DFF">
+  <div class="amb" aria-hidden="true"><i></i><i></i><i></i></div>
+  <div class="wide">
+    <a class="pj-back" href="#work"><span class="ca back" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 6h10v10"/><path class="sh" d="M17.5 6.5L6 18"/></svg></span>All work</a>
+    <div class="pj-hero">
+      <div class="pj-ttl"><span class="eyebrow">Agency</span><h1>Bizzy Agency</h1></div>
+      <div class="pj-intro"><p>The full agency website with a clean identity and a conversion-minded structure, plus the complete admin panel with data-dense, responsive views. One component system serves both.</p><div class="case-meta"><div><span>Since</span><b>July 2025</b></div><div><span>Scope</span><b>Website, admin, components</b></div></div></div>
+    </div>
+    <div class="pj-img shot" data-shot="bizzy-p"><div class="ph-art pa-bizzy"><div class="pa-web" style="color:#a100ff"></div></div></div>
+    <div class="case-deep"><div class="cd-steps"><div class="cd-s"><span class="cd-n">01</span><span class="cd-h">Website</span><p>The full Bizzy Agency website: modern UI, a clean visual identity and a conversion-minded structure.</p></div><div class="cd-s"><span class="cd-n">02</span><span class="cd-h">Admin panel</span><p>The complete admin interface, including data-dense views and responsive layouts.</p></div><div class="cd-s"><span class="cd-n">03</span><span class="cd-h">System</span><p>A scalable component system shared by the marketing site and the admin product.</p></div></div><div class="cd-foot2"><div class="cd-scr2"><span class="cd-h">Key screens</span><ol><li><span>01</span>Marketing site</li><li><span>02</span>Admin dashboard</li><li><span>03</span>Data views</li><li><span>04</span>Components</li></ol></div><div class="cd-pal2"><span class="cd-h">Platform</span><p class="cd-plat">Web · Admin</p></div></div></div>
+    <a class="aa-next pj-next" href="#hayway"><span>Next project</span><b>HayWay</b><i><span class="ca e" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 6h10v10"/><path class="sh" d="M17.5 6.5L6 18"/></svg></span></i></a>
   </div>
 </section>
 
@@ -1601,7 +1692,7 @@ document.querySelectorAll('[data-copy]').forEach(btn => {
   const open = c => cols.forEach(x => { const on = x === c; x.classList.toggle('open', on); x.setAttribute('aria-selected', on); x.tabIndex = on ? 0 : -1 })
   cols.forEach((c, i) => {
     c.addEventListener('mouseenter', () => { if (matchMedia('(hover: hover)').matches) open(c) })
-    c.addEventListener('click', () => open(c))
+    c.addEventListener('click', () => { if (c.classList.contains('open') && c.dataset.href) location.hash = c.dataset.href; else open(c) })
     c.addEventListener('focus', () => open(c))
     c.addEventListener('keydown', e => {
       const d = e.key === 'ArrowRight' || e.key === 'ArrowDown' ? 1 : e.key === 'ArrowLeft' || e.key === 'ArrowUp' ? -1 : 0
@@ -2033,6 +2124,7 @@ return {
   const navLinks = [...document.querySelectorAll('.nav a[data-r]')]
   const VER = { a: '', b: 'b-', d: 'd-' }
   let current = null, lastA = 'home'
+  const PJ = ['hayway', 'skatey', 'meduza', 'isaa', 'bizzy']
   function parse(r) {
     if (r === 'home' || r === 'home-aw' || !r) return { ver: 'a', base: 'home' }
     let m = r.match(/^home-([bd])$/); if (m) return { ver: m[1], base: 'home' }
@@ -2041,6 +2133,7 @@ return {
   }
   function go() {
     let r = (location.hash || '#home').slice(1)
+    if (r === 'skills') { history.replaceState(null, '', '#about'); r = 'about' }
     if (!document.getElementById('p-' + r)) r = 'home'
     const { ver, base } = parse(r)
     if (r === 'home' || r === 'home-aw') lastA = r
@@ -2052,7 +2145,7 @@ return {
     navLinks.forEach(a => {
       const b = a.dataset.r
       a.setAttribute('href', '#' + (b === 'home' ? (ver === 'a' ? lastA : 'home-' + ver) : VER[ver] + b))
-      if (b === base) a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current')
+      if (b === (PJ.includes(base) ? 'work' : base)) a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current')
     })
     const page = document.getElementById('p-' + r)
     GL.mount(page.querySelector('[data-gl]'))
