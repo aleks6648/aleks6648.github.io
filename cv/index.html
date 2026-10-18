@@ -1626,6 +1626,11 @@ html[data-ver="a"][data-nav="4"] .nav::before { content: ""; position: absolute;
 .mo-foot { justify-content: flex-start; text-transform: none; letter-spacing: .02em; font-size: 14px; }
 /* featured tile: arrow sits on a small dark disc so it stays clear over the image */
 .feat .lab .ca { box-sizing: content-box; padding: 10px; margin: -10px -10px -10px 0; border-radius: 50%; background: rgba(12,10,18,.72); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); }
+
+/* featured tile arrow: stays centred in its disc on hover */
+.feat .lab .ca, .feat:hover .lab .ca { transform: none !important; transition: background .3s, color .3s; }
+.feat:hover .lab .ca svg, .feat:focus-visible .lab .ca svg { transform: none !important; }
+.feat:hover .lab .ca { background: rgba(185,163,255,.22); }
 </style>
 </head>
 <body>
