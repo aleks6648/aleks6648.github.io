@@ -1792,28 +1792,28 @@ html[data-ver="a"][data-nav="4"] .nav::before { content: ""; position: absolute;
       <div style="display:grid;gap:18px"><span class="eyebrow">Work</span><h1>Selected <em>work</em></h1></div>
       <div class="wk-count"><b>05</b>projects · 2022 - 2026</div>
     </div>
-    <div class="colonnade" role="tablist" aria-label="Projects">
-      <button class="col open" role="tab" aria-selected="true" data-href="#hayway">
+    <div class="colonnade" aria-label="Projects">
+      <button class="col open" data-href="#hayway">
         <div class="grad g-hayway"></div><div class="shot" data-shot="hayway"><div class="ph-art pa-hayway"><div class="pa-dev" style="color:#ff5a3c"></div><div class="pa-dev b" style="color:#7b61ff"></div></div></div><div class="shade"></div>
         <span class="vk">APP</span><span class="vt">HayWay</span>
         <div class="body"><div class="lab lav">Mobile app · case study</div><h3>HayWay</h3><p>A taxi app for Yerevan that fixes payment confusion and lets riders book rides for the future.</p><div class="meta"><span><b>Role</b> End-to-end UX/UI</span><span><b>Platform</b> iOS · Android</span></div><span class="col-go">Open case <span class="ca" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 6h10v10"/><path class="sh" d="M17.5 6.5L6 18"/></svg></span></span></div>
       </button>
-      <button class="col" role="tab" aria-selected="false" data-href="#skatey">
+      <button class="col" data-href="#skatey">
         <div class="grad g-skatey"></div><div class="shot" data-shot="skatey"><div class="ph-art pa-skatey"><div class="pa-web" style="color:#0f9f8f"></div></div></div><div class="shade"></div>
         <span class="vk">WEB</span><span class="vt">Skatey</span>
         <div class="body"><div class="lab lav">E-commerce · case study</div><h3>Skatey</h3><p>An online ice-skating store where beginners and pros find the right skates fast.</p><div class="meta"><span><b>Role</b> UX research · UI</span><span><b>Platform</b> Web</span></div><span class="col-go">Open case <span class="ca" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 6h10v10"/><path class="sh" d="M17.5 6.5L6 18"/></svg></span></span></div>
       </button>
-      <button class="col" role="tab" aria-selected="false" data-href="#meduza">
+      <button class="col" data-href="#meduza">
         <div class="grad g-meduza"></div><div class="shot" data-shot="meduza"><div class="ph-art pa-meduza"><div class="pa-dev" style="color:#e6b94a"></div></div></div><div class="shade"></div>
         <span class="vk">APP</span><span class="vt">Meduza</span>
         <div class="body"><div class="lab lav">News app · redesign</div><h3>Meduza</h3><p>A redesign concept for Meduza across mobile and web: today’s news, blitz news and podcasts in one calm dark interface.</p><div class="meta"><span><b>Role</b> UX/UI redesign</span><span><b>Platform</b> Mobile · Web</span></div><span class="col-go">Open case <span class="ca" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 6h10v10"/><path class="sh" d="M17.5 6.5L6 18"/></svg></span></span></div>
       </button>
-      <button class="col" role="tab" aria-selected="false" data-href="#isaa">
+      <button class="col" data-href="#isaa">
         <div class="grad g-isaa"></div><div class="shot" data-shot="isaa"><div class="ph-art pa-isaa"><div class="pa-web" style="color:#1d4ed8"></div></div></div><div class="shade"></div>
         <span class="vk">GOV</span><span class="vt">Henaket</span>
         <div class="body"><div class="lab lav">Public sector · 2026 - now</div><h3>Henaket</h3><p>National-scale digital services and the agency design system.</p><div class="meta"><span><b>Role</b> UI/UX Designer</span><span><b>Scope</b> Services · System</span></div><span class="col-go">Open case <span class="ca" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 6h10v10"/><path class="sh" d="M17.5 6.5L6 18"/></svg></span></span></div>
       </button>
-      <button class="col" role="tab" aria-selected="false" data-href="#bizzy">
+      <button class="col" data-href="#bizzy">
         <div class="grad g-bizzy"></div><div class="shot" data-shot="bizzy"><div class="ph-art pa-bizzy"><div class="pa-web" style="color:#a100ff"></div></div></div><div class="shade"></div>
         <span class="vk">WEB</span><span class="vt">Bizzy</span>
         <div class="body"><div class="lab lav">Agency · 2025 - now</div><h3>Bizzy</h3><p>The agency website and its complete admin panel on one component system.</p><div class="meta"><span><b>Role</b> UI/UX Designer</span><span><b>Scope</b> Web · Admin</span></div><span class="col-go">Open case <span class="ca" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 6h10v10"/><path class="sh" d="M17.5 6.5L6 18"/></svg></span></span></div>
@@ -1968,7 +1968,7 @@ document.querySelectorAll('[data-copy]').forEach(btn => {
 /* ---------- colonnade ---------- */
 ;(function () {
   const cols = [...document.querySelectorAll('.col')]
-  const open = c => cols.forEach(x => { const on = x === c; x.classList.toggle('open', on); x.setAttribute('aria-selected', on); x.tabIndex = on ? 0 : -1 })
+  const open = c => cols.forEach(x => { const on = x === c; x.classList.toggle('open', on); x.setAttribute('aria-expanded', on); x.tabIndex = 0 })
   cols.forEach((c, i) => {
     c.addEventListener('mouseenter', () => { if (matchMedia('(hover: hover)').matches) open(c) })
     c.addEventListener('click', () => { if (c.classList.contains('open') && c.dataset.href) location.hash = c.dataset.href; else open(c) })
