@@ -1631,6 +1631,15 @@ html[data-ver="a"][data-nav="4"] .nav::before { content: ""; position: absolute;
 .feat .lab .ca, .feat:hover .lab .ca { transform: none !important; transition: background .3s, color .3s; }
 .feat:hover .lab .ca svg, .feat:focus-visible .lab .ca svg { transform: none !important; }
 .feat:hover .lab .ca { background: rgba(185,163,255,.22); }
+
+/* visible keyboard focus on home tiles and links */
+.bento a.t:focus { outline: none; }
+.bento a.t:focus-visible { outline: none !important; }
+.bento a.t:focus-visible::after { content: ""; position: absolute; inset: 4px; z-index: 50; border-radius: calc(var(--r) - 4px); border: 3px solid var(--lav); box-shadow: 0 0 0 4px rgba(185,163,255,.25); pointer-events: none; }
+.bento a.t.lavtile:focus-visible::after { border-color: #0c0716; box-shadow: 0 0 0 4px rgba(12,7,22,.2); }
+.nav a:focus-visible, .menu-btn:focus-visible { outline: 2px solid var(--lav); outline-offset: 4px; border-radius: 8px; }
+/* work: project count readable */
+.wk-count { color: var(--hint); }
 </style>
 </head>
 <body>
