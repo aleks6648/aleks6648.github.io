@@ -1640,6 +1640,13 @@ html[data-ver="a"][data-nav="4"] .nav::before { content: ""; position: absolute;
 .nav a:focus-visible, .menu-btn:focus-visible { outline: 2px solid var(--lav); outline-offset: 4px; border-radius: 8px; }
 /* work: project count readable */
 .wk-count { color: var(--hint); }
+
+/* phones and tablets: all work cards open, one after another */
+@media (max-width: 980px) {
+  #p-work .colonnade { gap: 16px; }
+  .col.open .body p { -webkit-line-clamp: 3; }
+  .col.open .vt, .col.open .vk { display: none; }
+}
 </style>
 </head>
 <body>
@@ -1977,7 +1984,13 @@ document.querySelectorAll('[data-copy]').forEach(btn => {
 /* ---------- colonnade ---------- */
 ;(function () {
   const cols = [...document.querySelectorAll('.col')]
-  const open = c => cols.forEach(x => { const on = x === c; x.classList.toggle('open', on); x.setAttribute('aria-expanded', on); x.tabIndex = 0 })
+  const stack = matchMedia('(max-width: 980px)')   /* phones and tablets: every card stays open */
+  let last = cols[0]
+  const open = c => {
+    if (stack.matches) { cols.forEach(x => { x.classList.add('open'); x.setAttribute('aria-expanded', 'true') }); return }
+    last = c
+    cols.forEach(x => { const on = x === c; x.classList.toggle('open', on); x.setAttribute('aria-expanded', on); x.tabIndex = 0 })
+  }
   cols.forEach((c, i) => {
     c.addEventListener('mouseenter', () => { if (matchMedia('(hover: hover)').matches) open(c) })
     c.addEventListener('click', () => { if (c.classList.contains('open') && c.dataset.href) location.hash = c.dataset.href; else open(c) })
@@ -1988,6 +2001,7 @@ document.querySelectorAll('[data-copy]').forEach(btn => {
       e.preventDefault(); cols[(i + d + cols.length) % cols.length].focus()
     })
   })
+  stack.addEventListener('change', () => open(last))
   open(cols[0])
 })()
 
